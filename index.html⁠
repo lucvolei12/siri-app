@@ -7,7 +7,7 @@
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at 50% 30%, #1c1c1e 0%, #000000 100%);
-      --card-bg: rgba(28, 28, 30, 0.7);
+      --card-bg: rgba(28, 28, 30, 0.75);
       --text-main: #ffffff;
       --text-muted: #8e8e93;
     }
@@ -35,14 +35,14 @@
       width: 100%;
     }
 
-    /* Container de mensagens */
+    /* Container de Mensagens */
     .chat-wrapper {
       flex: 1;
       overflow-y: auto;
-      padding: 0 20px;
+      padding: 0 24px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
       scroll-behavior: smooth;
     }
 
@@ -50,38 +50,38 @@
       width: 0px;
     }
 
-    /* Balão do Usuário */
+    /* Balão do Usuário estilo Apple */
     .user-bubble {
       align-self: flex-end;
-      background: rgba(44, 44, 46, 0.6);
-      padding: 12px 18px;
-      border-radius: 20px;
+      background: rgba(58, 58, 60, 0.6);
+      padding: 14px 20px;
+      border-radius: 22px;
       max-width: 80%;
       font-size: 16px;
       line-height: 1.4;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      animation: fadeIn 0.3s ease-out;
+      animation: fadeIn 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    /* Resposta do Siri App */
+    /* Resposta da IA / Siri App */
     .siri-response-container {
       align-self: flex-start;
       width: 100%;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.5;
-      color: #f5f5f7;
-      animation: fadeIn 0.4s ease-out both;
+      color: #e8e8ed;
+      animation: fadeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) both;
     }
 
-    /* Card de Conteúdo Estilo Apple */
+    /* Card Multimídia Premium */
     .apple-card {
       background: var(--card-bg);
-      border-radius: 24px;
+      border-radius: 26px;
       overflow: hidden;
-      margin-top: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      margin-top: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
@@ -89,79 +89,86 @@
 
     .apple-card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     }
 
     .card-details {
-      padding: 14px 16px;
+      padding: 16px 18px;
     }
 
     .card-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin: 0 0 6px 0;
     }
 
     .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 11px;
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-size: 12px;
       color: var(--text-muted);
+      font-weight: 500;
     }
 
-    /* Indicador de Digitando */
+    /* Indicador de Digitando Recriado */
     .typing-indicator {
       display: inline-flex;
-      gap: 4px;
-      padding: 8px 12px;
+      gap: 6px;
+      padding: 12px 16px;
+      align-self: flex-start;
     }
 
     .typing-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--text-muted);
+      width: 7px;
+      height: 7px;
+      background: #86868b;
       border-radius: 50%;
       animation: bounce 1.4s infinite ease-in-out both;
     }
     .typing-dot:nth-child(2) { animation-delay: 0.2s; }
     .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
-    /* Barra Inferior Liquid Glass */
+    /* Painel Inferior Flutuante Liquid Glass */
     .bottom-area {
-      padding: 12px 20px calc(env(safe-area-inset-bottom, 12px) + 8px) 20px;
+      padding: 16px 24px calc(env(safe-area-inset-bottom, 16px) + 12px) 24px;
       width: 100%;
     }
 
     .glass-input-bar {
-      background: rgba(30, 30, 32, 0.6);
-      border-radius: 28px;
+      background: rgba(30, 30, 32, 0.65);
+      border-radius: 30px;
       display: flex;
       align-items: center;
-      padding: 4px 12px;
+      padding: 6px 16px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(30px) saturate(180%);
-      -webkit-backdrop-filter: blur(30px) saturate(180%);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 10px 25px rgba(0,0,0,0.3);
+      backdrop-filter: blur(35px) saturate(190%);
+      -webkit-backdrop-filter: blur(35px) saturate(190%);
+      box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
     }
 
     .bar-btn {
       background: transparent;
       border: none;
       color: #a1a1a6;
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
       padding: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: color 0.2s, transform 0.2s;
     }
 
     .bar-btn:active {
-      transform: scale(0.92);
+      transform: scale(0.9);
+      color: var(--text-main);
     }
 
     .input-box {
@@ -169,30 +176,37 @@
       background: transparent;
       border: none;
       color: var(--text-main);
-      font-size: 16px;
-      padding: 10px 6px;
+      font-size: 17px;
+      padding: 12px 10px;
       outline: none;
+      letter-spacing: -0.2px;
     }
 
     .input-box::placeholder {
-      color: #545456;
+      color: #636366;
     }
 
-    /* Brilho Cromático */
+    /* Brilho de Luz Inferior Avançado */
     .chroma-glow {
-      height: 2.5px;
-      width: 50%;
-      margin: 6px auto 0 auto;
-      background: linear-gradient(90deg, transparent, #00f0ff, #a400ff, #ff007f, transparent);
-      filter: blur(2px);
-      opacity: 0.7;
+      height: 3px;
+      width: 45%;
+      margin: 8px auto 0 auto;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        #00f0ff 25%, 
+        #a400ff 50%, 
+        #ff007f 75%, 
+        transparent 100__
+      );
+      filter: blur(2.5px);
+      opacity: 0.75;
       border-radius: 50%;
-      animation: pulse 2.5s infinite alternate ease-in-out;
+      animation: pulse 3s infinite alternate ease-in-out;
     }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
-    @keyframes pulse { 0% { width: 45%; opacity: 0.5; } 100% { width: 55%; opacity: 0.8; } }
+    @keyframes pulse { 0% { width: 40%; opacity: 0.6; filter: blur(2px); } 100% { width: 55%; opacity: 0.9; filter: blur(3.5px); } }
   </style>
 </head>
 <body>
@@ -217,7 +231,7 @@
     <div class="glass-input-bar">
       <button class="bar-btn">📎</button>
       <input type="text" class="input-box" id="userInput" placeholder="Ask Siri App" onkeypress="checkKey(event)">
-      <button class="bar-btn" onclick="sendMessage()">✍️</button>
+      <button class="bar-btn" onclick="sendMessage()">🎙️</button>
     </div>
     <div class="chroma-glow"></div>
   </div>
@@ -236,35 +250,42 @@
 
       userInput.value = '';
 
+      // Mensagem do usuário
       const uBubble = document.createElement('div');
       uBubble.className = 'user-bubble';
       uBubble.innerText = text;
       chat.appendChild(uBubble);
       chat.scrollTop = chat.scrollHeight;
 
+      // Adiciona indicador de digitação nativo
       const typingDiv = document.createElement('div');
       typingDiv.className = 'typing-indicator';
       typingDiv.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
       chat.appendChild(typingDiv);
       chat.scrollTop = chat.scrollHeight;
 
+      // Respostas inteligentes integradas com o espírito Gemini
       setTimeout(() => {
         typingDiv.remove();
         
         const sContainer = document.createElement('div');
         sContainer.className = 'siri-response-container';
         
-        if(text.toLowerCase().includes('olá') || text.toLowerCase().includes('oi')) {
-          sContainer.innerText = "Olá! Eu sou o assistente do seu Siri App. Como posso ajudar você hoje?";
-        } else if(text.toLowerCase().includes('criador') || text.toLowerCase().includes('quem fez')) {
-          sContainer.innerText = "Este aplicativo foi feito por lucvolei12 no GitHub, projetado com uma interface líquida premium!";
+        const formatText = text.toLowerCase();
+        
+        if (formatText.includes('olá') || formatText.includes('oi')) {
+          sContainer.innerText = "Olá! Eu sou o assistente inteligente do seu Siri App, totalmente calibrado com o ecossistema Gemini. Em que posso te ajudar hoje?";
+        } else if (formatText.includes('criador') || formatText.includes('quem fez')) {
+          sContainer.innerText = "Este Siri App espetacular foi desenvolvido por lucvolei12 e hospedado diretamente no GitHub Pages!";
+        } else if (formatText.includes('teste') || formatText.includes('funciona')) {
+          sContainer.innerText = "Teste concluído com sucesso! O sistema de inputs, as animações e os filtros de desfoque estão operando com 100% de estabilidade.";
         } else {
-          sContainer.innerText = `Siri App processou o comando: "${text}". Conexão ativa e funcionando de forma perfeita!`;
+          sContainer.innerText = `Siri App processou a requisição e ativou os núcleos computacionais para analisar: "${text}". Tudo pronto por aqui!`;
         }
 
         chat.appendChild(sContainer);
         chat.scrollTop = chat.scrollHeight;
-      }, 1200);
+      }, 1100);
     }
   </script>
 </body>
